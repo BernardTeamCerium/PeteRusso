@@ -122,24 +122,16 @@
   const status = document.getElementById("formStatus");
 
   if (form && status) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const endpoint = form.getAttribute("action") || "";
+    const isConfigured = endpoint && !/YOUR_FORM_ID/.test(endpoint);
 
-      status.className = "form__status";
+    const setStatus = (msg, kind) => {
+      status.className = "form__status" + (kind ? " is-" + kind : "");
+      status.textContent = msg;
+    };
 
-      if (!name || !emailOk) {
-        status.textContent = "Please add your name and a valid email.";
-        status.classList.add("is-error");
-        return;
-      }
-
-      // No backend wired yet — surface success + open a mailto fallback.
-      status.textContent = "Thanks, " + name.split(" ")[0] + "! Opening your email client…";
-      status.classList.add("is-success");
-
+    // Fallback path when no form service is wired up yet: open the email client.
+    const mailtoFallback = (name, email) => {
       const interest = form.interest.value.replace(/-/g, " ");
       const body = encodeURIComponent(
         (form.message.value.trim() || "Hi Pete,") +
@@ -148,8 +140,51 @@
       const subject = encodeURIComponent("Inquiry: " + interest);
       window.location.href =
         "mailto:prusso@retireaef.com?subject=" + subject + "&body=" + body;
+    };
 
-      form.reset();
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      if (!name || !emailOk) {
+        setStatus("Please add your name and a valid email.", "error");
+        return;
+      }
+
+      if (!isConfigured) {
+        setStatus("Thanks, " + name.split(" ")[0] + "! Opening your email client…", "success");
+        mailtoFallback(name, email);
+        form.reset();
+        return;
+      }
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalLabel = submitBtn ? submitBtn.textContent : "";
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending…"; }
+      setStatus("Sending…", "");
+
+      try {
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form),
+        });
+
+        if (res.ok) {
+          setStatus("Thanks, " + name.split(" ")[0] + "! Your message is on its way.", "success");
+          form.reset();
+        } else {
+          throw new Error("Bad response");
+        }
+      } catch (err) {
+        // Network/service failure — don't lose the lead, fall back to email.
+        setStatus("Couldn't reach the server — opening your email client instead…", "error");
+        mailtoFallback(name, email);
+      } finally {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+      }
     });
   }
 })();

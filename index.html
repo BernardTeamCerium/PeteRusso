@@ -379,7 +379,8 @@
           </ul>
         </div>
 
-        <form class="contact__form reveal" data-reveal id="contactForm" novalidate>
+        <!-- Replace YOUR_FORM_ID with your Formspree form ID (formspree.io). Until then, the form falls back to opening the visitor's email client. -->
+        <form class="contact__form reveal" data-reveal id="contactForm" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" novalidate>
           <div class="field">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" autocomplete="name" required placeholder="Your name" />

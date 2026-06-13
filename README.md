@@ -52,9 +52,14 @@ python3 -m http.server 8000
 - **Testimonials:** the quotes in the *Voices* section are representative placeholders.
   Replace with real client/organizer quotes and names. (A `* Representative testimonials`
   note is shown until then.)
-- **Contact form:** currently front-end only — it validates and opens the visitor's email
-  client (`mailto:prusso@retireaef.com`). To capture submissions directly, point the form
-  at a service like Formspree/Netlify Forms or a small backend (see `assets/js/main.js`).
+- **Contact form:** wired for [Formspree](https://formspree.io) (no backend needed).
+  1. Create a free Formspree form and copy its form ID.
+  2. In `index.html`, replace `YOUR_FORM_ID` in the form's `action`
+     (`https://formspree.io/f/YOUR_FORM_ID`).
+  That's it — submissions post via AJAX and the visitor stays on the page. Until the ID is
+  set (or if the request fails), the form gracefully falls back to opening the visitor's
+  email client (`mailto:prusso@retireaef.com`), so no lead is lost. Prefer Netlify Forms or
+  your own endpoint? Just point the `action` there — the same JS handles it.
 - **Social links / email:** verify the Instagram, LinkedIn, and email in `index.html`.
 
 ## Design notes
