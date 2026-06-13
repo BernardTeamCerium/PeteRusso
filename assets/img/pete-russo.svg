@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b1d25"/>
+      <stop offset="1" stop-color="#0f1014"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e3c585"/>
+      <stop offset="1" stop-color="#a9802f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="35%" r="60%">
+      <stop offset="0" stop-color="#cda454" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#cda454" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="480" height="600" fill="url(#bg)"/>
+  <rect width="480" height="600" fill="url(#glow)"/>
+  <!-- silhouette -->
+  <g fill="#2a2d38">
+    <circle cx="240" cy="225" r="92"/>
+    <path d="M88 600c0-95 68-168 152-168s152 73 152 168z"/>
+  </g>
+  <g fill="none" stroke="url(#gold)" stroke-width="2" opacity="0.5">
+    <circle cx="240" cy="225" r="92"/>
+  </g>
+  <text x="50%" y="512" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="600"
+        fill="url(#gold)">PR</text>
+  <text x="50%" y="548" text-anchor="middle"
+        font-family="Inter, sans-serif" font-size="14" letter-spacing="3"
+        fill="#7d7d89">PORTRAIT PLACEHOLDER</text>
+</svg>
