@@ -394,3 +394,60 @@
     start();
   })();
 })();
+
+/* =====================================================
+   Pete Russo — content interactions (rotator + FAQ)
+   ===================================================== */
+(function () {
+  "use strict";
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Hero rotating word ---------- */
+  (function rotator() {
+    const el = document.getElementById("heroRotator");
+    if (!el || reduce) return;
+    const words = (el.dataset.words || "")
+      .split(",").map((w) => w.trim()).filter(Boolean);
+    if (words.length < 2) return;
+    let i = 0;
+    setInterval(() => {
+      el.classList.add("is-swapping");
+      setTimeout(() => {
+        i = (i + 1) % words.length;
+        el.textContent = words[i];
+        el.classList.remove("is-swapping");
+      }, 350);
+    }, 2600);
+  })();
+
+  /* ---------- FAQ accordion ---------- */
+  (function faq() {
+    const list = document.getElementById("faqList");
+    if (!list) return;
+    const items = Array.from(list.querySelectorAll(".faq__item"));
+    items.forEach((item) => {
+      const btn = item.querySelector(".faq__q");
+      const panel = item.querySelector(".faq__a");
+      if (!btn || !panel) return;
+      btn.addEventListener("click", () => {
+        const isOpen = item.classList.contains("is-open");
+        items.forEach((it) => {
+          it.classList.remove("is-open");
+          const b = it.querySelector(".faq__q");
+          const p = it.querySelector(".faq__a");
+          if (b) b.setAttribute("aria-expanded", "false");
+          if (p) p.style.maxHeight = null;
+        });
+        if (!isOpen) {
+          item.classList.add("is-open");
+          btn.setAttribute("aria-expanded", "true");
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    });
+    window.addEventListener("resize", () => {
+      const open = list.querySelector(".faq__item.is-open .faq__a");
+      if (open) open.style.maxHeight = open.scrollHeight + "px";
+    });
+  })();
+})();

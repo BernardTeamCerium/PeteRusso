@@ -886,6 +886,74 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   .voices__nav { width: 40px; height: 40px; font-size: 1.3rem; }
 }
 
+/* ---------- Hero rotating word ---------- */
+.rotator {
+  display: inline-block;
+  position: relative;
+  background-size: 220% 100%;
+  animation: accentShimmer 7s linear infinite;
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+  padding-bottom: 0.04em;
+}
+.rotator.is-swapping { opacity: 0; transform: translateY(-0.28em); }
+.rotator::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -0.04em;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent-soft), var(--accent));
+  opacity: 0.85;
+}
+@keyframes accentShimmer { to { background-position: -220% 0; } }
+
+/* ---------- FAQ accordion ---------- */
+.faq__list {
+  max-width: 820px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.faq__item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  overflow: hidden;
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+.faq__item.is-open { border-color: var(--line-strong); background: var(--surface-2); }
+.faq__q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem 1.4rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--text);
+  text-align: left;
+  transition: color 0.25s var(--ease);
+}
+.faq__q:hover { color: var(--accent-soft); }
+.faq__icon { position: relative; width: 18px; height: 18px; flex-shrink: 0; }
+.faq__icon::before,
+.faq__icon::after {
+  content: "";
+  position: absolute;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease);
+}
+.faq__icon::before { top: 8px; left: 0; width: 18px; height: 2px; }
+.faq__icon::after { left: 8px; top: 0; width: 2px; height: 18px; }
+.faq__item.is-open .faq__icon::after { transform: scaleY(0); }
+.faq__a { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease); }
+.faq__a-inner { padding: 0 1.4rem 1.3rem; color: var(--text-soft); }
+.faq__a-inner a { color: var(--accent-soft); }
+.faq__a-inner a:hover { color: var(--accent); }
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; }
@@ -894,4 +962,6 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   .cursor-glow { display: none; }
   .voices__track { transition: none; }
   [data-tilt] { transition: none; }
+  .rotator { animation: none; }
+  .faq__a { transition: none; }
 }
