@@ -24,6 +24,9 @@
   <!-- Skip link for accessibility -->
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- Cursor spotlight (desktop, pointer-fine only) -->
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
   <!-- Progress bar -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
@@ -80,7 +83,7 @@
         </div>
 
         <div class="hero__portrait reveal" data-reveal>
-          <div class="portrait">
+          <div class="portrait" data-tilt data-tilt-max="6">
             <div class="portrait__frame">
               <img src="assets/img/pete-russo.jpg" alt="Portrait of Pete Russo" id="heroPortrait" />
             </div>
@@ -187,22 +190,22 @@
         </div>
 
         <div class="topics">
-          <article class="topic reveal" data-reveal>
+          <article class="topic reveal" data-reveal data-tilt data-tilt-max="8">
             <span class="topic__index">01</span>
             <h3 class="topic__title">Leadership That Scales</h3>
             <p>How to grow from doing the work to leading the people who do &mdash; without losing the standard that made you exceptional.</p>
           </article>
-          <article class="topic reveal" data-reveal>
+          <article class="topic reveal" data-reveal data-tilt data-tilt-max="8">
             <span class="topic__index">02</span>
             <h3 class="topic__title">The Entrepreneur&rsquo;s Engine</h3>
             <p>The mindset, habits, and bets behind turning one small idea into a multi-industry enterprise.</p>
           </article>
-          <article class="topic reveal" data-reveal>
+          <article class="topic reveal" data-reveal data-tilt data-tilt-max="8">
             <span class="topic__index">03</span>
             <h3 class="topic__title">Mastering Your Time</h3>
             <p>The discipline of time management as a competitive advantage &mdash; and the systems that protect your highest-value hours.</p>
           </article>
-          <article class="topic reveal" data-reveal>
+          <article class="topic reveal" data-reveal data-tilt data-tilt-max="8">
             <span class="topic__index">04</span>
             <h3 class="topic__title">High-Performance Teams</h3>
             <p>Building a synchronized team where every person operates in their zone of genius and the whole outperforms the sum.</p>
@@ -256,7 +259,7 @@
         </div>
 
         <div class="coaching__card reveal" data-reveal>
-          <div class="pricecard">
+          <div class="pricecard" data-tilt data-tilt-max="6">
             <p class="pricecard__tag">1:1 Strategy Session</p>
             <h3 class="pricecard__title">Private Coaching Call</h3>
             <p class="pricecard__desc">A high-intensity working session focused entirely on your goals, your team, and your next move.</p>
@@ -326,28 +329,48 @@
           <h2 class="section__title">What leaders say after <span class="text-accent">working with Pete</span></h2>
         </div>
 
-        <div class="voices__grid">
-          <figure class="voice reveal" data-reveal>
-            <blockquote>Pete has a rare gift for cutting straight to what actually matters. One call reframed how I think about my time and my team.</blockquote>
-            <figcaption>
-              <span class="voice__name">Executive Coaching Client</span>
-              <span class="voice__role">Founder, Growth-Stage Firm</span>
-            </figcaption>
-          </figure>
-          <figure class="voice reveal" data-reveal>
-            <blockquote>The most actionable keynote our conference has hosted. People were still quoting his &lsquo;zone of genius&rsquo; framework weeks later.</blockquote>
-            <figcaption>
-              <span class="voice__name">Conference Organizer</span>
-              <span class="voice__role">Financial Services Industry</span>
-            </figcaption>
-          </figure>
-          <figure class="voice reveal" data-reveal>
-            <blockquote>He&rsquo;s lived everything he teaches. The credibility is real, and it changes how the whole room listens.</blockquote>
-            <figcaption>
-              <span class="voice__name">Leadership Team Lead</span>
-              <span class="voice__role">Multi-State Operation</span>
-            </figcaption>
-          </figure>
+        <div class="voices__carousel reveal" data-reveal data-carousel>
+          <button class="voices__nav voices__nav--prev" type="button" aria-label="Previous testimonial">
+            <span aria-hidden="true">&#8249;</span>
+          </button>
+
+          <div class="voices__viewport">
+            <ul class="voices__track" id="voicesTrack">
+              <li class="voice-slide">
+                <figure class="voice">
+                  <blockquote>Pete has a rare gift for cutting straight to what actually matters. One call reframed how I think about my time and my team.</blockquote>
+                  <figcaption>
+                    <span class="voice__name">Executive Coaching Client</span>
+                    <span class="voice__role">Founder, Growth-Stage Firm</span>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="voice-slide">
+                <figure class="voice">
+                  <blockquote>The most actionable keynote our conference has hosted. People were still quoting his &lsquo;zone of genius&rsquo; framework weeks later.</blockquote>
+                  <figcaption>
+                    <span class="voice__name">Conference Organizer</span>
+                    <span class="voice__role">Financial Services Industry</span>
+                  </figcaption>
+                </figure>
+              </li>
+              <li class="voice-slide">
+                <figure class="voice">
+                  <blockquote>He&rsquo;s lived everything he teaches. The credibility is real, and it changes how the whole room listens.</blockquote>
+                  <figcaption>
+                    <span class="voice__name">Leadership Team Lead</span>
+                    <span class="voice__role">Multi-State Operation</span>
+                  </figcaption>
+                </figure>
+              </li>
+            </ul>
+          </div>
+
+          <button class="voices__nav voices__nav--next" type="button" aria-label="Next testimonial">
+            <span aria-hidden="true">&#8250;</span>
+          </button>
+
+          <div class="voices__dots" id="voicesDots" role="tablist" aria-label="Choose testimonial"></div>
         </div>
         <p class="voices__note reveal" data-reveal>* Representative testimonials &mdash; swap in real client quotes and names before launch.</p>
       </div>
@@ -437,6 +460,11 @@
       <p>Built to help leaders operate in their zone of genius.</p>
     </div>
   </footer>
+
+  <!-- Back to top -->
+  <button class="to-top" id="toTop" type="button" aria-label="Back to top">
+    <span aria-hidden="true">&#8593;</span>
+  </button>
 
   <script src="assets/js/main.js"></script>
 </body>
