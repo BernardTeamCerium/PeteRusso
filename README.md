@@ -1,9 +1,9 @@
 # Pete Russo — Personal Brand Site
 
 A fast, modern, single-page site for **Pete Russo** — entrepreneur, executive, and
-keynote speaker. Built as a static site (HTML / CSS / vanilla JS) with a dark, premium
-aesthetic: deep charcoal surfaces, gold accents, an editorial serif display face, and
-smooth scroll-reveal motion.
+keynote speaker. Built as a static site (HTML / CSS / vanilla JS) with a modern, premium
+aesthetic: deep slate surfaces, electric-cobalt accents, an editorial serif display face,
+and smooth scroll-reveal motion.
 
 No build step. No dependencies. Deploys anywhere.
 
@@ -45,10 +45,11 @@ python3 -m http.server 8000
 
 ## Before launch — content to replace
 
-- **Photos:** swap the three SVGs in `assets/img/` for real images.
-  - Hero: a portrait works best (it's masked into a tall arched frame, ~4:5).
-  - About: an on-stage / speaking shot (~4:5).
-  - You can keep the `.svg` filenames or update the `src` in `index.html`.
+- **Photos:** real photos of Pete are wired in (`assets/img/`):
+  - `pete-russo.jpg` — hero portrait (vertical, fits the arched ~4:5 frame).
+  - `pete-about.jpg` — About section (private-aviation / Forbes shot).
+  - `pete-russo-alt.jpg` — spare alternate (thoughtful pose), not currently placed.
+  To change any, drop a new file at the same path or update the `src` in `index.html`.
 - **Testimonials:** the quotes in the *Voices* section are representative placeholders.
   Replace with real client/organizer quotes and names. (A `* Representative testimonials`
   note is shown until then.)
@@ -65,7 +66,7 @@ python3 -m http.server 8000
 ## Design notes
 
 - **Type:** [Fraunces](https://fonts.google.com/specimen/Fraunces) (display) + [Inter](https://fonts.google.com/specimen/Inter) (UI/body), loaded from Google Fonts.
-- **Color tokens** live in `:root` in `styles.css` — change the gold/charcoal palette in one place.
+- **Color tokens** live in `:root` in `styles.css` — the slate base + electric-cobalt accent (`--accent*`) can be re-themed in one place.
 - **Accessibility:** skip link, focus styles, `aria` on the menu/form, and full
   `prefers-reduced-motion` support (animations and counters are disabled when requested).
 - **Performance:** no frameworks; ~one CSS file, one small JS file, inline SVG art.

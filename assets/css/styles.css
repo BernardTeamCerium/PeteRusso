@@ -1,24 +1,24 @@
 /* =====================================================
    Pete Russo — Personal Brand Site
-   Dark & premium aesthetic
+   Slate & electric cobalt aesthetic
    ===================================================== */
 
 :root {
-  --bg: #0a0a0c;
-  --bg-alt: #0f1014;
-  --surface: #14151b;
-  --surface-2: #1b1d25;
+  --bg: #0d0f14;
+  --bg-alt: #11141b;
+  --surface: #161a23;
+  --surface-2: #1d222e;
   --line: rgba(255, 255, 255, 0.08);
   --line-strong: rgba(255, 255, 255, 0.16);
 
-  --text: #f4f2ec;
-  --text-soft: #b6b6c0;
-  --text-mute: #7d7d89;
+  --text: #eef1f6;
+  --text-soft: #aab3c5;
+  --text-mute: #6f7892;
 
-  --gold: #cda454;
-  --gold-soft: #e3c585;
-  --gold-deep: #a9802f;
-  --gold-glow: rgba(205, 164, 84, 0.35);
+  --accent: #3b6dff;
+  --accent-soft: #6f93ff;
+  --accent-deep: #2a4fd0;
+  --accent-glow: rgba(59, 109, 255, 0.38);
 
   --maxw: 1180px;
   --radius: 18px;
@@ -58,7 +58,7 @@ a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; padding: 0; }
 button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
 
-::selection { background: var(--gold); color: #0a0a0c; }
+::selection { background: var(--accent); color: #ffffff; }
 
 /* ---------- Layout helpers ---------- */
 .container {
@@ -85,14 +85,14 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   font-size: 0.78rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--accent);
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
 .text-accent {
   font-style: italic;
-  background: linear-gradient(105deg, var(--gold-soft), var(--gold));
+  background: linear-gradient(105deg, var(--accent-soft), var(--accent));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -102,8 +102,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   position: absolute;
   left: -999px;
   top: 0;
-  background: var(--gold);
-  color: #0a0a0c;
+  background: var(--accent);
+  color: #ffffff;
   padding: 0.6rem 1rem;
   z-index: 999;
   border-radius: 0 0 8px 0;
@@ -126,21 +126,21 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   border: 1px solid transparent;
 }
 .btn--primary {
-  background: linear-gradient(105deg, var(--gold-soft), var(--gold));
-  color: #1a1206;
-  box-shadow: 0 10px 30px -10px var(--gold-glow);
+  background: linear-gradient(105deg, var(--accent-soft), var(--accent));
+  color: #ffffff;
+  box-shadow: 0 10px 30px -10px var(--accent-glow);
 }
 .btn--primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 18px 40px -12px var(--gold-glow);
+  box-shadow: 0 18px 40px -12px var(--accent-glow);
 }
 .btn--ghost {
   border-color: var(--line-strong);
   color: var(--text);
 }
 .btn--ghost:hover {
-  border-color: var(--gold);
-  color: var(--gold-soft);
+  border-color: var(--accent);
+  color: var(--accent-soft);
   transform: translateY(-3px);
 }
 .btn--block { width: 100%; }
@@ -161,7 +161,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   top: 0; left: 0;
   height: 3px;
   width: 0%;
-  background: linear-gradient(90deg, var(--gold-deep), var(--gold-soft));
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent-soft));
   z-index: 200;
   transition: width 0.1s linear;
 }
@@ -190,9 +190,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   place-items: center;
   width: 40px; height: 40px;
   border-radius: 11px;
-  background: linear-gradient(135deg, var(--gold-soft), var(--gold-deep));
-  color: #16100440;
-  color: #1a1206;
+  background: linear-gradient(135deg, var(--accent-soft), var(--accent-deep));
+  color: #ffffff;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.05rem;
@@ -213,7 +212,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   position: absolute;
   left: 0; bottom: -6px;
   width: 0; height: 2px;
-  background: var(--gold);
+  background: var(--accent);
   transition: width 0.3s var(--ease);
 }
 .nav__links a:not(.nav__cta):hover { color: var(--text); }
@@ -221,12 +220,12 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 .nav__cta {
   padding: 0.6rem 1.25rem;
-  border: 1px solid var(--gold);
+  border: 1px solid var(--accent);
   border-radius: 100px;
-  color: var(--gold-soft) !important;
+  color: var(--accent-soft) !important;
   transition: background 0.3s var(--ease), color 0.3s var(--ease);
 }
-.nav__cta:hover { background: var(--gold); color: #1a1206 !important; }
+.nav__cta:hover { background: var(--accent); color: #ffffff !important; }
 
 .nav__toggle {
   display: none;
@@ -266,13 +265,13 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   width: 50vw; height: 50vw;
   max-width: 640px; max-height: 640px;
   top: -10%; right: -8%;
-  background: radial-gradient(circle, var(--gold-glow), transparent 70%);
+  background: radial-gradient(circle, var(--accent-glow), transparent 70%);
 }
 .hero__glow--2 {
   width: 40vw; height: 40vw;
   max-width: 520px; max-height: 520px;
   bottom: -15%; left: -10%;
-  background: radial-gradient(circle, rgba(80, 90, 140, 0.25), transparent 70%);
+  background: radial-gradient(circle, rgba(31, 182, 201, 0.20), transparent 70%);
 }
 .hero__grid {
   position: absolute; inset: 0;
@@ -307,7 +306,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   font-size: clamp(1.05rem, 1.6vw, 1.2rem);
   max-width: 36ch;
 }
-.hero__lead strong { color: var(--gold-soft); font-weight: 600; }
+.hero__lead strong { color: var(--accent-soft); font-weight: 600; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.25rem; }
 
 /* Portrait */
@@ -343,7 +342,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .portrait__badge-num {
   font-family: var(--font-display);
   font-size: 1.7rem;
-  color: var(--gold-soft);
+  color: var(--accent-soft);
   line-height: 1;
 }
 .portrait__badge-label { font-size: 0.78rem; color: var(--text-mute); max-width: 14ch; margin-top: 0.25rem; }
@@ -366,7 +365,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 .hero__scroll-line {
   width: 1px; height: 42px;
-  background: linear-gradient(var(--gold), transparent);
+  background: linear-gradient(var(--accent), transparent);
   animation: scrollPulse 2s var(--ease) infinite;
   transform-origin: top;
 }
@@ -387,7 +386,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4.5vw, 3.4rem);
   line-height: 1;
-  color: var(--gold-soft);
+  color: var(--accent-soft);
   letter-spacing: -0.02em;
 }
 .stat__label { color: var(--text-mute); font-size: 0.92rem; margin-top: 0.6rem; }
@@ -414,7 +413,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   max-width: 270px;
   background: var(--surface);
   border: 1px solid var(--line-strong);
-  border-left: 3px solid var(--gold);
+  border-left: 3px solid var(--accent);
   border-radius: var(--radius-sm);
   padding: 1.1rem 1.25rem;
   font-family: var(--font-display);
@@ -432,7 +431,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   font-family: var(--font-display);
   font-style: italic;
   font-size: 1.6rem;
-  color: var(--gold-soft);
+  color: var(--accent-soft);
 }
 .about__role { font-size: 0.9rem; color: var(--text-mute); }
 
@@ -455,7 +454,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(120% 100% at 0% 0%, var(--gold-glow), transparent 45%);
+  background: radial-gradient(120% 100% at 0% 0%, var(--accent-glow), transparent 45%);
   opacity: 0;
   transition: opacity 0.4s var(--ease);
 }
@@ -464,7 +463,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .topic__index {
   font-family: var(--font-display);
   font-size: 0.95rem;
-  color: var(--gold);
+  color: var(--accent);
   letter-spacing: 0.1em;
   position: relative;
 }
@@ -508,7 +507,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   width: 26px; height: 26px;
   margin-top: 2px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold-soft), var(--gold-deep));
+  background: linear-gradient(135deg, var(--accent-soft), var(--accent-deep));
   position: relative;
 }
 .check::after {
@@ -516,7 +515,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   position: absolute;
   left: 9px; top: 5px;
   width: 6px; height: 11px;
-  border: solid #1a1206;
+  border: solid #ffffff;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
@@ -536,13 +535,13 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
 .pricecard__tag {
   font-size: 0.78rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--accent);
   font-weight: 600;
 }
 .pricecard__title { font-family: var(--font-display); font-size: 1.75rem; margin-block: 0.5rem 0.6rem; }
@@ -554,7 +553,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   position: absolute; left: 0; top: 9px;
   width: 7px; height: 7px;
   border-radius: 50%;
-  background: var(--gold);
+  background: var(--accent);
 }
 .pricecard__note { text-align: center; font-size: 0.82rem; color: var(--text-mute); margin-top: 1rem; }
 
@@ -565,7 +564,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   position: absolute;
   left: 11px; top: 6px; bottom: 6px;
   width: 2px;
-  background: linear-gradient(var(--gold-deep), var(--line));
+  background: linear-gradient(var(--accent-deep), var(--line));
 }
 .tl { position: relative; padding-left: 3rem; padding-bottom: 2.25rem; }
 .tl:last-child { padding-bottom: 0; }
@@ -575,7 +574,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   width: 24px; height: 24px;
   border-radius: 50%;
   background: var(--bg);
-  border: 2px solid var(--gold);
+  border: 2px solid var(--accent);
   display: grid;
   place-items: center;
 }
@@ -583,7 +582,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   content: "";
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: var(--gold);
+  background: var(--accent);
 }
 .tl__card {
   border: 1px solid var(--line);
@@ -597,7 +596,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   font-size: 0.74rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--accent);
   font-weight: 600;
 }
 .tl__card h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.45rem; margin-block: 0.4rem 0.5rem; }
@@ -633,7 +632,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   font-family: var(--font-display);
   font-size: 3rem;
   line-height: 0.6;
-  color: var(--gold);
+  color: var(--accent);
   margin-bottom: 0.5rem;
 }
 .voice__name { display: block; font-weight: 600; font-family: var(--font-sans); }
@@ -657,8 +656,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .contact__methods { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.1rem; }
 .contact__methods li { display: flex; flex-direction: column; gap: 0.1rem; }
 .contact__label { font-size: 0.74rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-mute); }
-.contact__methods a { color: var(--gold-soft); font-size: 1.1rem; transition: color 0.25s var(--ease); width: fit-content; }
-.contact__methods a:hover { color: var(--gold); }
+.contact__methods a { color: var(--accent-soft); font-size: 1.1rem; transition: color 0.25s var(--ease); width: fit-content; }
+.contact__methods a:hover { color: var(--accent); }
 
 .contact__form {
   border: 1px solid var(--line-strong);
@@ -695,19 +694,19 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .field select:focus,
 .field textarea:focus {
   outline: none;
-  border-color: var(--gold);
-  box-shadow: 0 0 0 3px var(--gold-glow);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
 }
 .field textarea { resize: vertical; }
 .field select { appearance: none; cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23cda454' d='M6 8 0 0h12z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%233b6dff' d='M6 8 0 0h12z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   padding-right: 2.5rem;
 }
 .form__status { margin-top: 1rem; font-size: 0.92rem; min-height: 1.2em; }
 .form__status.is-error { color: #e88; }
-.form__status.is-success { color: var(--gold-soft); }
+.form__status.is-success { color: var(--accent-soft); }
 
 /* ---------- Footer ---------- */
 .footer { border-top: 1px solid var(--line); padding-top: 3.5rem; background: var(--bg); }
@@ -724,10 +723,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .footer__tag { font-size: 0.82rem; color: var(--text-mute); }
 .footer__nav { display: flex; flex-wrap: wrap; gap: 1.5rem; }
 .footer__nav a { color: var(--text-soft); font-size: 0.95rem; transition: color 0.25s var(--ease); }
-.footer__nav a:hover { color: var(--gold-soft); }
+.footer__nav a:hover { color: var(--accent-soft); }
 .footer__social { display: flex; gap: 1.25rem; }
 .footer__social a { color: var(--text-soft); font-size: 0.92rem; transition: color 0.25s var(--ease); }
-.footer__social a:hover { color: var(--gold-soft); }
+.footer__social a:hover { color: var(--accent-soft); }
 .footer__bottom {
   border-top: 1px solid var(--line);
   padding-block: 1.5rem;
